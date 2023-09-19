@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Показ веб-страниц</title>
+</head>
+<body>
+<form id="webpage-form">
+    <input type="text" id="url-input" placeholder="Введите URL-адрес веб-страницы">
+    <input type="number" id="interval-input" placeholder="Интервал (в миллисекундах)">
+    <button type="button" id="add-button">Добавить</button>
+    <button type="button" id="start-button">Начать</button>
+</form>
+<ul id="sites-list">
+
+</ul>
+<div id="webpage-container"></div>
+<script>
+    const addButton = document.getElementById("add-button")
+    const startButton = document.getElementById("start-button")
+
+    var urls = document.getElementById("sites-list").querySelectorAll('li')
+    var intervalMilliseconds = 1000; // Интервал по умолчанию (1 секунда)
+    let currentIndex = 0; // Текущий индекс веб-страницы
+    let intervalId; // Идентификатор интервала
+
+    const webpageContainer = document.getElementById("webpage-container");
+
+    addButton.addEventListener("click", function () {
+        const urlInput = document.getElementById("url-input");
+        const url = urlInput.value.trim();
+        if (url !== "") {
+            addUrl(url)
+        }
+    })
+
+    startButton.addEventListener("click", function () {
+        const interval = parseInt(document.getElementById("interval-input").value)
+        if (!isNaN(interval) && interval > 0) {
+                intervalMilliseconds = interval
+                urls = document.getElementById("sites-list").querySelectorAll('li')
+                showNextWebpage()
+                intervalId = setInterval(showNextWebpage, intervalMilliseconds)
+                startButton.disabled = true
+                currentIndex = 0
+        }
+    })
+
+    function addUrl(url) {
+        const list = document.getElementById("sites-list")
+        const newItem = document.createElement('li')
+        newItem.textContent = url
+        list.append(newItem)
+    }
+
+    function showNextWebpage() {
+        if (currentIndex < urls.length) {
+            var url = urls[currentIndex].innerHTML
+            var iframe = document.createElement("iframe")
+            iframe.src = url
+            iframe.style.width = "100%"
+            iframe.style.height = "500px"
+            webpageContainer.innerHTML = "" // Очищаем контейнер
+            webpageContainer.appendChild(iframe);
+            currentIndex++;
+        } else {
+            clearInterval(intervalId);
+            startButton.disabled = false;
+            webpageContainer.innerHTML = "Все веб-страницы просмотрены.";
+        }
+    }
+</script>
+</body>
+</html>

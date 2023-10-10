@@ -1,0 +1,113 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+* {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+header, footer {
+    height: 5%;
+    background: #dee2e6;
+}
+
+#main_container {
+    margin: 0;
+    padding: 0;
+    height: 90%;
+    background: #f8f9fa;
+}
+
+#settings_container {
+    background: darkgray;
+    height: 30%;
+}
+
+#form_container {
+    height: 100%;
+    width: 50%;
+    background: aquamarine;
+    float: left;
+}
+
+#url_list_container {
+    height: 100%;
+    width: 50%;
+    background: gold;
+    float: right;
+}
+
+#url_list_container {
+    height: 100%;
+    width: 50%;
+    background: gold;
+    float: right;
+}
+
+#url_list {
+    border-radius:10px;
+    border: 1px solid grey;
+    padding: 3px;
+    margin: 35px 30px;
+    width: 80%;
+    outline: none;
+}
+
+.url_list_element {
+    margin-top: 1px;
+}
+
+.url_list_element:hover {
+    background: none;
+}
+
+#show_form {
+    float: right;
+    width: 60%;
+    margin: 35px auto;
+}
+
+.show_form_input {
+    width: 80%;
+    border-radius:10px;
+    border: 1px solid grey;
+    margin: 3px auto;
+    padding: 10px;
+    display: block;
+}
+
+#add-button {
+    margin-left: 44px;
+    width: 48%;
+    float: left;
+    overflow: hidden;
+}
+
+#start-button {
+    margin-left: 6px;
+    overflow: hidden;
+    width: 35%;
+    float: left;
+}
+
+button:hover {
+    background: lightgray;
+}
+
+#slide_container {
+    height: 70%;
+    background: wheat;
+}
+
+iframe {
+    width: 60%;
+    height: 95%;
+    border: none;
+    margin: 10px 370px;
+}

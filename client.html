@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Показ веб-страниц</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<form id="webpage-form">
-    <input type="text" id="url-input" placeholder="Введите URL-адрес веб-страницы">
-    <input type="number" id="interval-input" placeholder="Интервал (в миллисекундах)">
-    <button type="button" id="add-button">Добавить</button>
-    <button type="button" id="start-button">Начать</button>
-</form>
-<ul id="sites-list">
+<div id="main_container">
+    <div id="show_form_container">
+        <form id="show_form">
+            <input type="text" id="url-input" placeholder="Введите URL-адрес веб-страницы">
+            <input type="number" id="interval-input" placeholder="Интервал (в миллисекундах)">
+            <button type="button" id="add-button">Добавить</button>
+            <button type="button" id="start-button">Начать</button>
+        </form>
+    </div>
+    <div id="slide_container">
 
-</ul>
-<div id="webpage-container"></div>
+    </div>
+</div>
+
+
+<!--<ul id="sites-list">-->
+
+<!--</ul>-->
+<!--<div id="webpage-container"></div>-->
 <script>
     const addButton = document.getElementById("add-button")
     const startButton = document.getElementById("start-button")
@@ -39,6 +49,7 @@
         if (!isNaN(interval) && interval > 0) {
                 intervalMilliseconds = interval
                 urls = document.getElementById("sites-list").querySelectorAll('li')
+                currentIndex = urls.length
                 showNextWebpage()
                 intervalId = setInterval(showNextWebpage, intervalMilliseconds)
                 startButton.disabled = true

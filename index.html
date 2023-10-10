@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Показ веб-страниц</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<header></header>
+<div id="main_container">
+    <div id="settings_container">
+        <div id="form_container">
+            <form id="show_form">
+                <input type="url" id="url-input" class="show_form_input" placeholder="Введите URL-адрес веб-страницы">
+                <input type="number" id="interval-input" class="show_form_input"
+                       placeholder="Интервал (в миллисекундах)" value="1000">
+                <button type="button" id="add-button" class="show_form_input">Добавить</button>
+                <button type="button" id="start-button" class="show_form_input">Начать</button>
+            </form>
+        </div>
+        <div id="url_list_container">
+            <select id="url_list" size="8">
+
+            </select>
+        </div>
+
+    </div>
+    <div id="slide_container">
+        <iframe id="slide" sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+</div>
+<script src="./js/index.js"></script>
+</body>
+<footer></footer>
+</html>
